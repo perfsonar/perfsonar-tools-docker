@@ -5,7 +5,7 @@ MAINTAINER Brian Tierney <bltierney@es.net>
 
 RUN yum -y install epel-release
 RUN yum -y update; yum clean all
-RUN rpm -hUv http://software.internet2.edu/rpms/el6/x86_64/main/RPMS/Internet2-repo-0.6-1.noarch.rpm
+RUN rpm -hUv http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/Internet2-repo-0.7-1.noarch.rpm
 RUN yum -y install perfsonar-tools
 RUN yum -y install supervisor net-tools systat tcsh tcpdump # grab a few other favorite tools
 
