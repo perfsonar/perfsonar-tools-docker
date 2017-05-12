@@ -5,9 +5,6 @@ http://docs.perfsonar.net/install_options.html
 
 This can be used to run perfSONAR Tools on any OS that supports docker.
 
-This this container currently only includes the perfSONAR 3.5 tools. 
-perfSONAR 4.0 will be coming very soon.
-
 Download the container:
 >docker pull bltierney/perfsonar-tools-docker
 
@@ -24,6 +21,7 @@ test perfSONAR tools from another host with owamp and bwctl installed:
 ## Notes:
 The perfSONAR hostname is assume to be the same is the base host. To use a different
 name/IP for the perfSONAR container, see: https://docs.docker.com/articles/networking/
+It also assume the base host is running NTP.
 
 ## Firewalls:
 make sure the following ports are allowed by the base host:
