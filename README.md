@@ -6,10 +6,10 @@ http://docs.perfsonar.net/install_options.html
 This can be used to run perfSONAR Tools on any OS that supports docker.
 
 Download the container:
->docker pull bltierney/perfsonar-tools-docker
+>docker pull perfsonar/tools
 
 Run the container:
->docker run -d -P --net=host -v /var/run bltierney/perfsonar-tools-docker
+>docker run -d -P --net=host -v /var/run perfsonar/tools
 
 ## Testing
 
