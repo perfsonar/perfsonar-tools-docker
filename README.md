@@ -24,10 +24,10 @@ Then use that ID in this command:
 test perfSONAR tools to another host with owamp, bwctl, and pScheduler installed:
 >owping hostname
 >bwctl -c hostname
->pscheduler task throughput --source sourceHost --dest destHost
+>pscheduler task --assist sourceHost throughput --source sourceHost --dest destHost
 
 Note that pscheduler requires the full 'testpoint' bundle installed to run a test to/from a host.
-3rd party mode will work with just the 'tools' bundle.
+3rd party mode using the '--assist' flag will work with this 'tools' bundle.
 
 ## Notes:
 The perfSONAR hostname is assume to be the same is the base host. To use a different
