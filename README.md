@@ -3,7 +3,7 @@
 The docker container runs all perfSONAR tools in the "Tools" bundle, as described at:
 http://docs.perfsonar.net/install_options.html
 
-This can be used to run perfSONAR Tools on any OS that supports docker.
+This can be used to run the perfSONAR Tools on any OS that supports docker.
 
 Download the container:
 >docker pull perfsonar/tools
@@ -21,13 +21,14 @@ Then use that ID in this command:
 
 ## Testing
 
-test perfSONAR tools to another host with owamp, bwctl, and pScheduler installed:
+Sample commands to try to another host with perfSONAR installed:
 >owping hostname
->bwctl -c hostname
+>bwctl -c host1 -s host2
 >pscheduler task --assist sourceHost throughput --source sourceHost --dest destHost
 
 Note that pscheduler requires the full 'testpoint' bundle installed to run a test to/from a host.
-3rd party mode using the '--assist' flag will work with this 'tools' bundle.
+You will not be able to run pScheduler directly to/from this docker container.
+However, 3rd party mode using the '--assist' flag, as shown above, will work with this container.
 
 ## Notes:
 The perfSONAR hostname is assume to be the same is the base host. To use a different
