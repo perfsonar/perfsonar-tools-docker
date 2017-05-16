@@ -8,8 +8,11 @@ This can be used to run perfSONAR Tools on any OS that supports docker.
 Download the container:
 >docker pull perfsonar/tools
 
-Run the container:
+To run the container in the background, so others can test to you:
 >docker run -d -P --net=host -v /var/run perfsonar/tools
+
+To run the container in the foreground, so you can run interactive tests to others:
+>docker run -P -it --net=host -v /var/run perfsonar/tools bash
 
 ## Testing
 
