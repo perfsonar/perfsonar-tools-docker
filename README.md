@@ -11,15 +11,23 @@ Download the container:
 To run the container in the background, so others can test to you:
 >docker run -d -P --net=host -v /var/run perfsonar/tools
 
-To run the container in the foreground, so you can run interactive tests to others:
->docker run -P -it --net=host -v /var/run perfsonar/tools bash
+To get an interactive shell on the container, so you can run interactive tests to others:
+
+Get the Container ID:
+>docker ps -a
+
+Then use that ID in this command:
+>docker run -it ID bash
 
 ## Testing
 
-test perfSONAR tools from another host with owamp and bwctl installed:
+test perfSONAR tools to another host with owamp, bwctl, and pScheduler installed:
 >owping hostname
-
 >bwctl -c hostname
+>pscheduler task throughput --source sourceHost --dest destHost
+
+Note that pscheduler requires the full 'testpoint' bundle installed to run a test to/from a host.
+3rd party mode will work with just the 'tools' bundle.
 
 ## Notes:
 The perfSONAR hostname is assume to be the same is the base host. To use a different
