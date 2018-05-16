@@ -23,7 +23,6 @@ Then use that ID in this command:
 
 Sample commands to try to another host with perfSONAR installed:
 >owping hostname
->bwctl -c host1 -s host2
 >pscheduler task --assist sourceHost throughput --source sourceHost --dest destHost
 
 Note that pscheduler requires the full 'testpoint' bundle installed to run a test to/from a host.
@@ -37,7 +36,7 @@ It also assume the base host is running NTP.
 
 ## Firewalls:
 make sure the following ports are allowed by the base host:
- pScheduler: 443, bwctl:4823, 5001-5900, 6001-6200 ; owamp:861, 8760-9960
+ pScheduler: 443 ; owamp:861, 8760-9960
 See: http://www.perfsonar.net/deploy/security-considerations/
 
 
