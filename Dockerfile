@@ -3,21 +3,48 @@
 FROM centos:centos7
 MAINTAINER perfSONAR <perfsonar-user@perfsonar.net>
 
-RUN yum -y install epel-release
-RUN yum -y update; yum clean all
-RUN rpm -hUv http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
-RUN yum -y install perfsonar-tools
-RUN yum -y install supervisor net-tools sysstat tcpdump # grab a few other favorite tools
+RUN yum -y install \
+    # epel-release repo
+    epel-release \
+    # perfSONAR release repo
+    http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm && \
+    # reload the cache for the new repos
+    yum clean expire-cache && \
+    # install testpoint bundle and required tools for docker image
+    yum -y install \
+    perfsonar-tools \
+    supervisor && \
+    # setup supervisor logs
+    mkdir -p /var/log/supervisor && \
+    # clean up
+    yum clean all && \
+    rm -rf /var/cache/yum/*
 
-RUN mkdir -p /var/log/supervisor 
-ADD supervisord.conf /etc/supervisord.conf
+COPY supervisord.conf /etc/supervisord.conf
 
-# The following ports are used:
-# owamp:861, 8760-9960
-# ranges not supported, so need to use docker run -P to expose all ports
+#
+# Expose the proper ports for the perfSONAR tools
+#
+# owamp
+EXPOSE 861
+EXPOSE 8760-9960/udp
+# pscheduler
+EXPOSE 443
+# iperf3
+EXPOSE 5201
+# iperf2
+EXPOSE 5001
+# nuttcp
+EXPOSE 5000
+EXPOSE 5101
+# traceroute
+EXPOSE 33434-33634/udp
+# simplestream
+EXPOSE 5890-5900
+# ntp
+EXPOSE 123/udp
 
 # add pid directory
 VOLUME /var/run
 
 CMD /usr/bin/supervisord -c /etc/supervisord.conf
-
