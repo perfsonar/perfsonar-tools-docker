@@ -6,7 +6,7 @@ MAINTAINER perfSONAR <perfsonar-user@perfsonar.net>
 RUN yum -y install \
     # epel-release repo
     epel-release \
-    # perfSONAR release repo
+    # perfSONAR repo
     http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm && \
     # reload the cache for the new repos
     yum clean expire-cache && \
@@ -17,8 +17,6 @@ RUN yum -y install \
     net-tools \
     sysstat \
     tcpdump && \
-    # setup supervisor logs
-    mkdir -p /var/log/supervisor && \
     # clean up
     yum clean all && \
     rm -rf /var/cache/yum/*
