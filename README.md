@@ -17,7 +17,7 @@ Get the Container ID:
 >docker ps -a
 
 Then use that ID in this command:
->docker run -it ID bash
+>docker exec -it ID bash
 
 ## Testing
 
