@@ -5,7 +5,7 @@ MAINTAINER perfSONAR <perfsonar-user@perfsonar.net>
 
 RUN yum -y install epel-release
 RUN yum -y update; yum clean all
-RUN rpm -hUv http://software.internet2.edu/rpms/el7/x86_64/latest/packages/perfSONAR-repo-0.9-1.noarch.rpm 
+RUN rpm -hUv http://software.internet2.edu/rpms/el7/x86_64/latest/packages/perfSONAR-repo-0.10-1.noarch.rpm 
 RUN yum -y install perfsonar-tools
 RUN yum -y install supervisor net-tools sysstat tcpdump # grab a few other favorite tools
 
