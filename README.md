@@ -9,7 +9,7 @@ Download the container:
 >docker pull perfsonar/tools
 
 To run the container in the background, so others can test to you:
->docker run -d -P --net=host -v /var/run perfsonar/tools
+>docker run -d -P --net=host perfsonar/tools
 
 To get an interactive shell on the container, so you can run interactive tests to others:
 
@@ -17,7 +17,7 @@ Get the Container ID:
 >docker ps -a
 
 Then use that ID in this command:
->docker run -it ID bash
+>docker exec -it ID bash
 
 ## Testing
 
