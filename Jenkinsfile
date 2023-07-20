@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t cs1867/perfsonar-tools:$BUILD_NUMBER  .'
+                sh 'docker build -t cs1867/perfsonar-tools:latest  .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push cs1867/perfsonar-tools:$BUILD_NUMBER '
+                sh 'docker push cs1867/perfsonar-tools:latest '
             }
         }
 }
