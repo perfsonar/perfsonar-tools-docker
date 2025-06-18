@@ -1,0 +1,9 @@
+services:
+  tools:
+    container_name: perfsonar-tools
+    image: perfsonar/tools:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
+    restart: on-failure
